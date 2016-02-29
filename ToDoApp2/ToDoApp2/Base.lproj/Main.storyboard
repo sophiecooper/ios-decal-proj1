@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--To Do Table View Controller-->
@@ -14,28 +15,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bnU-Lt-gSZ" customClass="ToDoTableViewCell" customModule="ToDoApp2" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoCell" id="bnU-Lt-gSZ" customClass="ToDoTableViewCell" customModule="ToDoApp2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bnU-Lt-gSZ" id="Vs0-pR-4tI">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kqq-B0-3zL">
-                                            <rect key="frame" x="8" y="4" width="584" height="35.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="35.5" id="YSd-br-jKl"/>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35.5" id="d11-Zf-l1b"/>
-                                                <constraint firstAttribute="width" constant="584" id="m6L-Ob-qT5"/>
-                                            </constraints>
+                                            <rect key="frame" x="18" y="0.0" width="557" height="36"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Kqq-B0-3zL" firstAttribute="centerY" secondItem="Vs0-pR-4tI" secondAttribute="centerY" id="Fmm-aW-sJX"/>
-                                        <constraint firstItem="Kqq-B0-3zL" firstAttribute="centerX" secondItem="Vs0-pR-4tI" secondAttribute="centerX" id="tXk-Z3-kNM"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Kqq-B0-3zL" secondAttribute="trailing" constant="17" id="0qg-C6-Ap2"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Kqq-B0-3zL" secondAttribute="bottom" constant="-0.5" id="Cj5-wP-rET"/>
+                                        <constraint firstItem="Kqq-B0-3zL" firstAttribute="leading" secondItem="Vs0-pR-4tI" secondAttribute="leadingMargin" constant="10" id="QAD-CB-Ev9"/>
+                                        <constraint firstItem="Kqq-B0-3zL" firstAttribute="top" secondItem="Vs0-pR-4tI" secondAttribute="top" id="rU2-L9-LDX"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
