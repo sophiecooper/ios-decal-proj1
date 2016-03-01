@@ -8,13 +8,11 @@
 
 import UIKit
 
+
 class ToDoTableViewController: UITableViewController {
     
     
-    
-    
-    
-    let model = [" ", " hellolsdlaksjdlkajskldjlkasjdlkajsdkjaskdjlaksjdlajsd ", "h1"]
+    var model:[(item: String, date: NSDate)] = []
     
     var CompletedTasks = 0
 
@@ -35,7 +33,7 @@ class ToDoTableViewController: UITableViewController {
     //show items in tableView
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ToDoCell", forIndexPath: indexPath) as! ToDoTableViewCell
-        cell.ToDoTextLabel.text = model[indexPath.row]
+        cell.ToDoTextLabel.text = model[indexPath.row].0
         return cell
     }
     
@@ -52,13 +50,14 @@ class ToDoTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             //update number of completed tasks, remove from model
-            //view.reload()?
+            print(indexPath.row)
+            self.model.removeAtIndex(indexPath.row)
+            self.tableView.reloadData()
             CompletedTasks += 1
-            
-            
         }
     }
-
+    
+    
 
 }
 

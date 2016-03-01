@@ -10,9 +10,14 @@ import UIKit
 
 class StatsViewController: UIViewController {
 
+    
+    
+    @IBOutlet weak var NumberOfCompletedTasks: UILabel!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
