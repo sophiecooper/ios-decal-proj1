@@ -57,6 +57,13 @@ class ToDoTableViewController: UITableViewController {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if (segue.identifier != "segueToAddItem") {
+            let viewController : StatsViewController = segue.destinationViewController as! StatsViewController
+            viewController.TaskItems = self.CompletedTasks
+        }
+    }
     
 
 }

@@ -49,12 +49,12 @@
                     <navigationItem key="navigationItem" id="i72-lD-th2">
                         <barButtonItem key="leftBarButtonItem" title="Stats" id="41Q-rW-QIk">
                             <connections>
-                                <segue destination="Slm-pR-hA3" kind="showDetail" id="1e0-LI-jgq"/>
+                                <segue destination="q2T-tH-wa8" kind="show" id="km8-0L-9Uu"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PVs-vp-pXY">
                             <connections>
-                                <segue destination="a23-mO-Jt6" kind="presentation" id="BA9-dL-JCL"/>
+                                <segue destination="a23-mO-Jt6" kind="presentation" identifier="segueToAddItem" id="BA9-dL-JCL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -172,7 +172,7 @@
                                     <constraint firstAttribute="height" constant="101" id="TdT-Lc-79h"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="wmo-bL-VtS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                 <color key="textColor" red="0.048861406743526459" green="0.48727166652679443" blue="0.91093212366104126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -189,19 +189,12 @@
                             <constraint firstItem="9sb-yx-FIM" firstAttribute="top" secondItem="KcQ-ac-hpD" secondAttribute="bottom" constant="21" id="l6W-re-HMP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Ixn-Xd-En3">
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="PJm-8v-s2p">
-                            <connections>
-                                <segue destination="wGc-NB-mlu" kind="unwind" unwindAction="UnwindToToDoTableViewController:" id="wh6-mR-aKA"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Ixn-Xd-En3"/>
                     <connections>
                         <outlet property="NumberOfCompletedTasks" destination="9sb-yx-FIM" id="cdG-nO-dvw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRZ-JL-v5f" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="wGc-NB-mlu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="422" y="1015"/>
         </scene>
@@ -222,24 +215,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cA4-Qb-qYk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1436" y="1015"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="qPE-pN-Dsj">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Slm-pR-hA3" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8Tj-jm-9oF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="q2T-tH-wa8" kind="relationship" relationship="rootViewController" id="Qz6-kJ-OUG"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pl8-IX-2H4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-390" y="1015"/>
         </scene>
     </scenes>
 </document>

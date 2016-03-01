@@ -10,11 +10,14 @@ import UIKit
 
 class StatsViewController: UIViewController {
 
-    
+    var TaskItems : Int = 0
     
     @IBOutlet weak var NumberOfCompletedTasks: UILabel!
     
     
+    override func viewWillAppear(animated: Bool) {
+        NumberOfCompletedTasks.text=String(TaskItems)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
