@@ -13,12 +13,12 @@ class ToDoTableViewController: UITableViewController {
     
     
     var model:[(item: String, date: NSDate)] = []
-    
     var CompletedTasks = 0
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: "removeExpiredItems", userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,6 +62,19 @@ class ToDoTableViewController: UITableViewController {
         if (segue.identifier != "segueToAddItem") {
             let viewController : StatsViewController = segue.destinationViewController as! StatsViewController
             viewController.TaskItems = self.CompletedTasks
+        }
+    }
+    
+    //make sure all items are less than 24 hours old
+    func removeExpiredItems() {
+        let currentTime = NSDate()
+        if (self.model.count >= 1) {
+            for index in 0...(self.model.count-1) {
+                let expireDate = model[index].1.dateByAddingTimeInterval((60*60*24))
+                if (currentTime.compare(expireDate) == NSComparisonResult.OrderedDescending) {
+                    self.model.removeAtIndex(index)
+                }
+            }
         }
     }
     
