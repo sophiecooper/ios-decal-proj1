@@ -13,7 +13,7 @@ class ToDoTableViewController: UITableViewController {
     
     
     var model:[(item: String, date: NSDate)] = []
-    var CompletedTasks = 0
+    var checkedTasks : [Bool] = []
     
 
     override func viewDidLoad() {
@@ -34,7 +34,31 @@ class ToDoTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ToDoCell", forIndexPath: indexPath) as! ToDoTableViewCell
         cell.ToDoTextLabel.text = model[indexPath.row].0
+        if checkedTasks[indexPath.row] == false {
+            cell.accessoryType = .None
+        }
+        else if checkedTasks[indexPath.row] == true {
+            cell.accessoryType = .Checkmark
+        }
         return cell
+    }
+    
+    
+    //selecting items 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+            if cell.accessoryType == .Checkmark
+            {
+                cell.accessoryType = .None
+                checkedTasks[indexPath.row] = false
+            }
+            else
+            {
+                cell.accessoryType = .Checkmark
+                checkedTasks[indexPath.row] = true
+            }
+        }    
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,8 +76,8 @@ class ToDoTableViewController: UITableViewController {
             //update number of completed tasks, remove from model
             print(indexPath.row)
             self.model.removeAtIndex(indexPath.row)
+            self.checkedTasks.removeAtIndex(indexPath.row)
             self.tableView.reloadData()
-            CompletedTasks += 1
         }
     }
     
@@ -61,7 +85,13 @@ class ToDoTableViewController: UITableViewController {
         
         if (segue.identifier != "segueToAddItem") {
             let viewController : StatsViewController = segue.destinationViewController as! StatsViewController
-            viewController.TaskItems = self.CompletedTasks
+            var numTasks = 0
+            for i in 0...(self.checkedTasks.count-1) {
+                if checkedTasks[i] == true {
+                    numTasks += 1
+                }
+            }
+            viewController.TaskItems = numTasks
         }
     }
     
@@ -73,6 +103,7 @@ class ToDoTableViewController: UITableViewController {
                 let expireDate = model[index].1.dateByAddingTimeInterval((60*60*24))
                 if (currentTime.compare(expireDate) == NSComparisonResult.OrderedDescending) {
                     self.model.removeAtIndex(index)
+                    self.checkedTasks.removeAtIndex(index)
                 }
             }
         }

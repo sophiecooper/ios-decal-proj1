@@ -28,6 +28,7 @@ class AddItemViewController: UIViewController{
         let viewController:ToDoTableViewController = segue.destinationViewController as! ToDoTableViewController
         let currentTime : NSDate = NSDate()
         viewController.model.append((NewItemText.text!, currentTime))
+        viewController.checkedTasks.append((false))
         viewController.tableView.reloadData()
 
         
